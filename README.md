@@ -1,6 +1,6 @@
 # react-native-expo-swipe-button
 
-[![NPM Status](https://img.shields.io/npm/dm/react-native-floating-tag-button.svg?style=flat-square)](https://www.npmjs.com/package/react-native-expo-swipe-button)
+[![NPM Status](https://img.shields.io/npm/dm/react-native-expo-swipe-button.svg?style=flat-square)](https://www.npmjs.com/package/react-native-expo-swipe-button)
 
 ![ezgif com-gif-maker(1)](https://user-images.githubusercontent.com/51862073/194095325-8a621eeb-03bb-4006-b681-75c92b5808a6.gif)
 
