@@ -1,0 +1,22 @@
+{
+  "name": "react-native-swipe-button-example",
+  "displayName": "FilterFab Example",
+  "expo": {
+    "name": "react-native-swipe-button-example",
+    "slug": "react-native-swipe-button-example",
+    "description": "Example app for react-native-swipe-button",
+    "privacy": "public",
+    "version": "1.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
