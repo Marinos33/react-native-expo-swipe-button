@@ -12,14 +12,33 @@ function Home(): JSX.Element {
         onComplete={() => Alert.alert('Completed')}
         title="Swipe to complete"
         borderRadius={180}
-        containerStyle={{
-          borderRadius: 10,
-        }}
+        titleElement={
+          <View style={[styles.titleContainer, { height: 5 }]}>
+            <Text
+              numberOfLines={2}
+              allowFontScaling={false}
+              style={[styles.title]}
+            >
+              heyo
+            </Text>
+          </View>
+        }
       />
     </View>
   );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  titleContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  title: {
+    color: 'black',
+    fontSize: 16,
+    maxWidth: '50%',
+    textAlign: 'center',
+  },
+});
 
 export default Home;

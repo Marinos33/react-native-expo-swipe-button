@@ -30,6 +30,7 @@ const SwipeButton: FC<SwipeButtonProps> = ({
   Icon,
   containerStyle,
   circleBackgroundColor,
+  titleElement,
   onComplete,
   onSwipeEnd = () => {},
   onSwipeStart = () => {},
@@ -139,6 +140,7 @@ const SwipeButton: FC<SwipeButtonProps> = ({
         height={height}
         titleContainerExtraViewProps={titleContainerExtraViewProps}
         titleContainerStyle={titleContainerStyle}
+        titleElement={titleElement}
       />
 
       {!disabled && (

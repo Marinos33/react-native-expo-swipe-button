@@ -37,7 +37,15 @@ export interface SwipeButtonTextProps {
    */
   titleContainerStyle?: StyleProp<ViewStyle>;
 
+  /**
+   * Height of the title container
+   */
   height?: number;
+
+  /**
+   * An JSX element you can define to replace the title default component. Using this will omit the others title props
+   */
+  titleElement?: JSX.Element;
 }
 
 const SwipeButtonText: FC<SwipeButtonTextProps> = ({
@@ -46,24 +54,27 @@ const SwipeButtonText: FC<SwipeButtonTextProps> = ({
   titleContainerExtraViewProps,
   titleContainerStyle,
   titleExtraTextProps,
+  titleElement,
   height = DEFAULT_HEIGHT,
 }) => {
   return (
-    <View
-      testID="TitleContainer"
-      style={[styles.titleContainer, { height: height }, titleContainerStyle]}
-      {...titleContainerExtraViewProps}
-    >
-      <Text
-        numberOfLines={2}
-        allowFontScaling={false}
-        style={[styles.title, titleStyle]}
-        testID="Title"
-        {...titleExtraTextProps}
+    titleElement || (
+      <View
+        testID="TitleContainer"
+        style={[styles.titleContainer, { height: height }, titleContainerStyle]}
+        {...titleContainerExtraViewProps}
       >
-        {title}
-      </Text>
-    </View>
+        <Text
+          numberOfLines={2}
+          allowFontScaling={false}
+          style={[styles.title, titleStyle]}
+          testID="Title"
+          {...titleExtraTextProps}
+        >
+          {title}
+        </Text>
+      </View>
+    )
   );
 };
 
