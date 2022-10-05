@@ -2,12 +2,14 @@ import type { LinearGradientProps } from 'expo-linear-gradient';
 import type { StyleProp, ViewStyle } from 'react-native';
 import type { SwipeButtonCircleProps } from './SwipeButtonCircle';
 import type { SwipeButtonTextProps } from './SwipeButtonText';
+import type { SwipeButtonUnderlayTextProps } from './SwipeButtonUnderlayText';
 
 type SwipeButtonPropsExtends = Omit<
   SwipeButtonCircleProps,
   'opacity' | 'panHandlers' | 'translateX'
 > &
-  SwipeButtonTextProps;
+  SwipeButtonTextProps &
+  SwipeButtonUnderlayTextProps;
 
 export interface SwipeButtonProps extends SwipeButtonPropsExtends {
   /**

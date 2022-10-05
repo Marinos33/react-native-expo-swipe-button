@@ -18,6 +18,7 @@ import { SwipeButtonCircle } from './SwipeButtonCircle';
 import SwipeButtonText from './SwipeButtonText';
 import type { SwipeButtonProps } from './typings';
 import SwipeGradientView, { AnimatedGradient } from './SwipeGradient';
+import SwipeButtonUnderlayText from './SwipeButtonUnderlayText';
 
 const SwipeButton: FC<SwipeButtonProps> = ({
   title,
@@ -34,6 +35,12 @@ const SwipeButton: FC<SwipeButtonProps> = ({
   containerGradientProps,
   iconContainerStyle,
   titleElement,
+  underlayTitleElement,
+  underlayTitle,
+  underlayTitleExtraTextProps,
+  underlayTitleStyle,
+  underlayTitleContainerExtraViewProps,
+  underlayTitleContainerStyle,
   onComplete,
   onSwipeProgress = (_progress: number) => {},
   onSwipeEnd = () => {},
@@ -176,7 +183,22 @@ const SwipeButton: FC<SwipeButtonProps> = ({
             },
           ]}
           {...underlayContainerGradientProps}
-        />
+        >
+          {underlayTitle && (
+            <SwipeButtonUnderlayText
+              underlayTitle={underlayTitle}
+              underlayTitleStyle={underlayTitleStyle}
+              underlayTitleExtraTextProps={underlayTitleExtraTextProps}
+              height={height}
+              underlayTitleContainerExtraViewProps={
+                underlayTitleContainerExtraViewProps
+              }
+              underlayTitleContainerStyle={underlayTitleContainerStyle}
+              underlayTitleElement={underlayTitleElement}
+              animation={translateX}
+            />
+          )}
+        </AnimatedGradient>
       )}
 
       <SwipeButtonCircle

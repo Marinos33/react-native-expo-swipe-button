@@ -12,6 +12,8 @@ function Home(): JSX.Element {
         onComplete={() => Alert.alert('Completed')}
         title="Swipe to complete"
         borderRadius={180}
+        underlayTitle="Release to complete"
+        underlayTitleStyle={{ color: 'white' }}
         //circleSize={60}
         /*iconContainerStyle={{ marginStart: 5 }}
         containerStyle={{ borderWidth: 5, borderColor: 'red' }}
@@ -31,7 +33,7 @@ function Home(): JSX.Element {
           start: [0, 0.5],
           end: [1, 0.5],
         }}*/
-        titleElement={
+        /*titleElement={
           <View style={[styles.titleContainer, { height: 5 }]}>
             <Text
               numberOfLines={2}
@@ -41,7 +43,7 @@ function Home(): JSX.Element {
               hey
             </Text>
           </View>
-        }
+        }*/
       />
     </View>
   );
