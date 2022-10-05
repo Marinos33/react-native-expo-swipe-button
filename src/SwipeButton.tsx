@@ -1,6 +1,5 @@
 import React, { FC, useState } from 'react';
 import {
-  View,
   Animated,
   PanResponder,
   GestureResponderEvent,
@@ -18,6 +17,7 @@ import {
 import { SwipeButtonCircle } from './SwipeButtonCircle';
 import SwipeButtonText from './SwipeButtonText';
 import type { SwipeButtonProps } from './typings';
+import SwipeGradientView, { AnimatedGradient } from './SwipeGradient';
 
 const SwipeButton: FC<SwipeButtonProps> = ({
   title,
@@ -30,6 +30,8 @@ const SwipeButton: FC<SwipeButtonProps> = ({
   Icon,
   containerStyle,
   circleBackgroundColor,
+  underlayContainerGradientProps,
+  containerGradientProps,
   titleElement,
   onComplete,
   onSwipeEnd = () => {},
@@ -125,7 +127,8 @@ const SwipeButton: FC<SwipeButtonProps> = ({
     });
 
   return (
-    <View
+    <SwipeGradientView
+      {...containerGradientProps}
       style={[
         styles.container,
         opacityStyle,
@@ -144,7 +147,7 @@ const SwipeButton: FC<SwipeButtonProps> = ({
       />
 
       {!disabled && (
-        <Animated.View
+        <AnimatedGradient
           testID="Underlay"
           style={[
             styles.underlayContainer,
@@ -157,6 +160,7 @@ const SwipeButton: FC<SwipeButtonProps> = ({
               height,
             },
           ]}
+          {...underlayContainerGradientProps}
         />
       )}
 
@@ -169,7 +173,7 @@ const SwipeButton: FC<SwipeButtonProps> = ({
         borderRadius={borderRadius}
         height={height}
       />
-    </View>
+    </SwipeGradientView>
   );
 };
 

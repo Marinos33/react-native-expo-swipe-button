@@ -1,3 +1,4 @@
+import type { LinearGradientProps } from 'expo-linear-gradient';
 import type { StyleProp, ViewStyle } from 'react-native';
 import type { SwipeButtonCircleProps } from './SwipeButtonCircle';
 import type { SwipeButtonTextProps } from './SwipeButtonText';
@@ -72,4 +73,18 @@ export interface SwipeButtonProps extends SwipeButtonPropsExtends {
    * @default false
    */
   goBackToStart?: boolean;
+
+  /**
+   * gradient props for the container. Using this will actually use a linear gradient as view
+   */
+  containerGradientProps?: {
+    colors?: string[];
+  } & Omit<LinearGradientProps, 'colors' | 'style'>;
+
+  /**
+   * gradient props for the underlayContainer. Using this will actually use a linear gradient as view
+   */
+  underlayContainerGradientProps?: {
+    colors?: string[];
+  } & Omit<LinearGradientProps, 'colors' | 'style'>;
 }

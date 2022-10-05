@@ -1,2 +1,2 @@
 export { default as SwipeButton } from './SwipeButton';
-//export type { TagButtonProps, TagSource } from './typings';
+export type { SwipeButtonProps } from './typings';
