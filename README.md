@@ -1,73 +1,61 @@
-# react-native-floating-tag-button
+# react-native-expo-swipe-button
 
 [![NPM Status](https://img.shields.io/npm/dm/react-native-floating-tag-button.svg?style=flat-square)](https://www.npmjs.com/package/react-native-floating-tag-button)
 
 ![Desktop 05-08-22 14-52-07](https://user-images.githubusercontent.com/51862073/183081576-4b0aec57-d72c-4af1-a12e-370ef4167f9e.gif)
 
-
-A floating button with animated tags that you can add to.
+A swipe button ready-to-use and highly customizable
 
 ## Installations
 
 ```
-npm install react-native-floating-tag-button --save
-yarn install react-native-floating-tag-button
+npm install react-native-expo-swipe-button --save
+yarn install react-native-expo-swipe-button
 ```
 
 ## Usage
 
 ```js
-import { TagSource, TagButton } from 'react-native-floating-tag-button';
+import { SwipeButton } from 'react-native-expo-swipe-button';
 
-const data: TagSource[] = [
-   { value: 'Tag 1', label: 'test 1' },
-   { value: 'Tag 2', label: 'test 2' },
-   { value: 'Tag 3', label: 'test 3' },
-];
-
-const onSelect = (selectedTag: string[]) => {
-   //do something with selectedTag
-};
-
-<TagButton
-  dataSource={data}
-  onTagSelected={onSelect}
-  icon={
-    <Ionicons
-      name="menu"
-      size={24}
-      color="white"
-      style={{ backgroundColor: 'blue', borderRadius: 180, padding: 10 }}
-    />
-  }
-  position={{ bottom: 15, right: 15 }}
-  tagContainerStyle={{
-  backgroundColor: 'red',
-  marginRight: 10,
-  }}
-  textStyle={{ color: 'yellow', fontSize: 14 }}
-  activeTagContainerStyle={{ backgroundColor: 'green' }}
-  activeTextStyle={{ color: 'white' }}
-  tintColor="black"
-  touchableOpacity />
 ```
 ### Properties
 
-| Prop                                 | Description                                                                                                                    | Type                                                                 | Default                                                                                                 | Is Required  |
-| ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------| ---------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|--------------|
-| **`dataSource`**                     | the tags to display and use.                                                                                                   | `TagSource[]`                                                        |`[]`                                                                                                     | yes          |
-| **`onTagSelected`**                  | the callback method when a tag is selected.                                                                                    | `(tags: string[]) => void`                                           |`none`                                                                                                   | yes          |
-| **`icon`**                           | the element to display as the floating button to hide and show the tags. the element can be an icon, a text, an image, etc.    | `JSX.Element`                                                        |`none`                                                                                                   | yes          |
-| **`sortTags`**                       | if true, the tags will be sorted alphabetically.                                                                               | `boolean`                                                            |`false`                                                                                                  | no           |
-| **`position`**                       | an object to define the position of the button on the screen.                                                                  | `{ top?: number; left?: number; right?: number; bottom?: number; } ` |`{ bottom: 10, right: 5 }`                                                                               | no           |
-| **`direction`**                      | define the direction of the alignement between the floating button and his tags.                                               | `'row' \| 'row-reverse' \| 'column' \| 'column-reverse'`             |`column`                                                                                                 | no           |
-| **`tagContainerStyle`**              | the style of the container of the tags.                                                                                        | `StyleProp<ViewStyle>`                                               |`{ backgroundColor: '#787878', borderRadius: 180, width: 75 }`                                           | no           |
-| **`textStyle`**                      | the style of the labels of the tags.                                                                                           | `StyleProp<TextStyle>`                                               |`{ color: '#ffffff', fontSize: 14 }`                                                                     | no           |
-| **`activeTagContainerStyle`**        | the style of the container of the tags when selected.                                                                          | `StyleProp<ViewStyle>`                                               |`{ backgroundColor: 'white', paddingHorizontal: 8, paddingVertical: 4, borderRadius: 4, borderWidth: 1 }`| no           |
-| **`activeTextStyle`**                | the style of the labels of the tags when selected.                                                                             | `StyleProp<TextStyle>`                                               |`{ color: '#333' }`                                                                                      | no           |
-| **`tintColor?`**                     | the color of the border of the tags.                                                                                           | `string`                                                             |`00a8ff`                                                                                                 | no           |
-| **`touchableOpacity?`**              | if true, the tags will use a touchable opacity as clickable component, otherwise they will use a touchable without feedback.   | `boolean`                                                            |`false`                                                                                                  | no           |
-| **`animationDuration?`**             | the duration of the animation when the tags are shown.                                                                         | `number`                                                             |`200`                                                                                                    | no           |
+| Prop                              | Description                                                                      | Type      | Default | Is Required |
+|-----------------------------------|----------------------------------------------------------------------------------|-----------|---------|-------------|
+| **`disabled`**                    | If disabled is set to true it will not be possible to interact with the button.  | `boolean` | `false` | no          |
+| **`completeThresholdPercentage`** | Determine when `onComplete` should be invoked.                                   | `number`  | `70%`   | no          |
+| **`goBackToStart`**               | If true, the circle will go back to the start position after swipe is completed. | `boolean` | `false` | no          |
+| **`width`**                       | The width of the component.                                                      | `number`  | `90%`   | no          |
+| **`height`**                      | The height of the component.                                                     | `number`  | `70`    | no          |
+| `circleSize`                      | define the size of the circle button                                             | `number`  | `70`    | no          |
+| `underlayStyle`                   | The styling of the underlay container                                            | `StyleProp<ViewStyle>` | `{position: 'absolute',backgroundColor: '#152228',borderTopStartRadius: DEFAULT_BORDER_RADIUS,borderBottomStartRadius: DEFAULT_BORDER_RADIUS,borderBottomEndRadius: DEFAULT_BORDER_RADIUS, borderTopEndRadius: DEFAULT_BORDER_RADIUS }` | no  |
+| `containerStyle`                       | Styling of the outer container                                                                                    | `StyleProp<ViewStyle>`                                                         | `{backgroundColor: 'white',alignSelf: 'center',justifyContent: 'center' marginVertical: 10,
+  }`                                                                                                                                                    | no  |
+| `iconContainerStyle`                   | The styling of the button                                                                                         | `StyleProp<ViewStyle>`                                                         | `{ position: 'absolute', backgroundColor: 'black', alignItems: 'center', justifyContent: 'center' }`                                                                                                                                                 | no  |
+| `borderRadius`                         | The border radius of the container and the Icon                                                                   | `number`                                                                       | `height / 2`                                                                                                                                                                                                                                                            | no  |
+| `containerGradientProps`               | gradient props for the container. Using this will actually use a linear gradient as view                          | `{ colors?: string[]; } & Omit<LinearGradientProps, 'colors' | 'style'>` | none                                                                                                                                                                                                                                                                    | no  |
+| `underlayContainerGradientProps`       | gradient props for the underlayContainer. Using this will actually use a linear gradient as view                  | `{ colors?: string[]; } & Omit<LinearGradientProps, 'colors' | 'style'>` | none                                                                                                                                                                                                                                                                    | no  |
+| `Icon`                                 | Element that should be displayed inside the button                                                                | `JSX.Element`                                                                  | none                                                                                                                                                                                                                                                                    | yes |
+| `circleBackgroundColor`                | Background color for the circle                                                                                   | `string`                                                                       | `black`                                                                                                                                                                                                                                                                 | no  |
+| `borderRadius`                         | set border radius for the circle                                                                                  | `number`                                                                       | none                                                                                                                                                                                                                                                                    | no  |
+| `title`                                | The text that will be displayed in the container                                                                  | `string`                                                                       | none                                                                                                                                                                                                                                                                    | yes |
+| `titleExtraTextProps`                  | Additional props for the title text                                                                               | `TextProps`                                                                    | none                                                                                                                                                                                                                                                                    | no  |
+| `titleStyle`                           | Additional styling for the title text                                                                             | `StyleProp<TextStyle>`                                                         | `{ color: 'black', fontSize: 16, maxWidth: '50%', textAlign: 'center' }`                                                                                                                                                                             | no  |
+| `titleContainerExtraViewProps`         | Additional props for the title container                                                                          | `ViewProps`                                                                    | none                                                                                                                                                                                                                                                                    | no  |
+| `titleContainerStyle`                  | Additional styling for the title container                                                                        | `StyleProp<ViewStyle>`                                                         | `{ justifyContent: 'center', alignItems: 'center' }`                                                                                                                                                                                                         | no  |
+| `titleElement`                         | An JSX element you can define to replace the title default component. Using this will omit the others title props | `JSX.Element`                                                                  | none                                                                                                                                                                                                                                                                    | no  |
+| `underlayTitle`                        | The text that will be displayed in the underlay container                                                         | `string`                                                                       | `''`                                                                                                                                                                                                                                                                    | no  |
+| `underlayTitleExtraTextProps`          | Additional props for the underlay title text                                                                      | `TextProps`                                                                    | none                                                                                                                                                                                                                                                                    | no  |
+| `underlayTitleStyle`                   | Additional styling for the underlay title text                                                                    | `StyleProp<TextStyle>`                                                         | `{ color: 'black', fontSize: 16, maxWidth: '50%', textAlign: 'center' }`                                                                                                                                                                      | no  |
+| `underlayTitleContainerExtraViewProps` | Additional props for the underlay title container                                                                 | `ViewProps`                                                                    | none                                                                                                                                                                                                                                                                    | no  |
+| `underlayTitleContainerStyle` | Additional styling for the underlay title container                                                                        | `StyleProp<ViewStyle>`       | `{ justifyContent: 'center' alignItems: 'center' }` | no  |
+| `underlayTitleElement`        | An JSX element you can define to replace the underlay title default component. Using this will omit the others title props | `JSX.Element`                | none                                                            | no  |
+| `onComplete`                  | Callback that will be invoked when complete threshold has been reached                                                     | `() => void`                 | none                                                            | yes |
+| `onSwipeProgress`             | callback for swiping in progress                                                                                           | `(progress: number) => void` | none                                                            | no  |
+| `onSwipeStart`                | Callback that will be invoked when the user starts swiping                                                                 | `() => void`                 | none                                                            | no  |
+| `onSwipeEnd`                  | Callback that will be invoked when the user ends swiping                                                                   | `() => void`                 | none                                                            | no  |
+
 
 A complete minimal example can be found [Here](example/src/Home.tsx).
 
