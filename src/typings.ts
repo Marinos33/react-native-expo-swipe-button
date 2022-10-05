@@ -1,31 +1,75 @@
-import type { StyleProp, ViewStyle, TextStyle } from 'react-native';
+import type { StyleProp, ViewStyle } from 'react-native';
+import type { SwipeButtonCircleProps } from './SwipeButtonCircle';
+import type { SwipeButtonTextProps } from './SwipeButtonText';
 
-//type for the array with the source data (tag labels)
-/*export interface TagSource {
-  value: string; //teh value that will be return on select
-  label: string; //the label displayed on the tag
+type SwipeButtonPropsExtends = Omit<
+  SwipeButtonCircleProps,
+  'opacity' | 'panHandlers' | 'translateX'
+> &
+  SwipeButtonTextProps;
+
+export interface SwipeButtonProps extends SwipeButtonPropsExtends {
+  /**
+   * Callback that will be invoked when complete threshold has been reached
+   */
+  onComplete: () => void;
+
+  /**
+   * The with of the button
+   *
+   * @default 90% of the screen width
+   */
+  width?: number;
+
+  /**
+   * If disabled is set to true it will not be possible to interace with the button
+   */
+  disabled?: boolean;
+
+  /**
+   * Indicates when `onComplete` should be invoked.
+   *
+   * @default 70
+   */
+  completeThresholdPercentage?: number;
+
+  /**
+   * Callback that will be invoked when the suer starts swiping
+   */
+  onSwipeStart?: () => void;
+
+  /**
+   * Callback that will be invoked when the suer ends swiping
+   */
+  onSwipeEnd?: () => void;
+
+  /**
+   * The styling of the underlay container
+   */
+  underlayStyle?: StyleProp<ViewStyle>;
+
+  /**
+   * Styling for the outer container
+   */
+  containerStyle?: StyleProp<ViewStyle>;
+
+  /**
+   * The height of the button
+   * @default 70
+   */
+  height?: number;
+
+  /**
+   * The border radius of the container and the Icon
+   *
+   * @default (height / 2)
+   */
+  borderRadius?: number;
+
+  /**
+   * If true, the circle will scroll back to the start position after swipe is completed
+   *
+   * @default false
+   */
+  goBackToStart?: boolean;
 }
-
-//props of the tag button component
-export interface TagButtonProps {
-  dataSource: TagSource[]; //the tags to display and use
-  onTagSelected: (tags: string[]) => void; //the callback when a tag is selected
-  icon: JSX.Element; //the element to display as the main button to hide/ show the tags
-  sortTags?: boolean; //if true, the tags will be sorted alphabetically
-  //the position of the main button
-  position?: {
-    top?: number;
-    left?: number;
-    right?: number;
-    bottom?: number;
-  };
-  direction?: 'row' | 'row-reverse' | 'column' | 'column-reverse'; //the direction of the tags according to the main button
-  tagContainerStyle?: StyleProp<ViewStyle>; //the style of the container of the tags
-  textStyle?: StyleProp<TextStyle>; //the style of the label of the tags
-  activeTagContainerStyle?: StyleProp<ViewStyle>; //the style of the container of the tags when selected
-  activeTextStyle?: StyleProp<TextStyle>; //the style of the label of the tags when selected
-  tintColor?: string; //the color of the border of the tags
-  //singleChoiceMode?: boolean; need to be fixed, allow only one tag to be selected
-  touchableOpacity?: boolean; //if true, the tags will use a touchable opacity as clickable component, otherwise they will use a touchable without feedback
-  animationDuration?: number; //the duration of the animation when the tags are shown
-}*/

@@ -10,10 +10,8 @@ import {
   StyleSheet,
 } from 'react-native';
 import { DEFAULT_HEIGHT } from './constants';
-import type { SwipeButtonCommonProps } from './SwipeButton';
 
-export interface SwipeButtonTextProps
-  extends Omit<SwipeButtonCommonProps, 'borderRadius'> {
+export interface SwipeButtonTextProps {
   /**
    * The text that will be displaied in the container
    */
@@ -22,7 +20,7 @@ export interface SwipeButtonTextProps
   /**
    * Additional props for the title text
    */
-  titleProps?: TextProps;
+  titleExtraTextProps?: TextProps;
 
   /**
    * Additional styling for the title text
@@ -32,34 +30,36 @@ export interface SwipeButtonTextProps
   /**
    * Additional props for the title container
    */
-  titleContainerProps?: ViewProps;
+  titleContainerExtraViewProps?: ViewProps;
 
   /**
    * Additional styling for the title container
    */
   titleContainerStyle?: StyleProp<ViewStyle>;
+
+  height?: number;
 }
 
 const SwipeButtonText: FC<SwipeButtonTextProps> = ({
   title,
   titleStyle,
-  titleContainerProps,
+  titleContainerExtraViewProps,
   titleContainerStyle,
-  titleProps,
+  titleExtraTextProps,
   height = DEFAULT_HEIGHT,
 }) => {
   return (
     <View
       testID="TitleContainer"
-      style={[styles.titleContainer, { height }, titleContainerStyle]}
-      {...titleContainerProps}
+      style={[styles.titleContainer, { height: height }, titleContainerStyle]}
+      {...titleContainerExtraViewProps}
     >
       <Text
         numberOfLines={2}
         allowFontScaling={false}
         style={[styles.title, titleStyle]}
         testID="Title"
-        {...titleProps}
+        {...titleExtraTextProps}
       >
         {title}
       </Text>
@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   title: {
-    color: '#e9ff6b',
+    color: 'black',
     fontSize: 16,
     maxWidth: '50%',
     textAlign: 'center',

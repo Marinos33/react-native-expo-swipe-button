@@ -1,8 +1,7 @@
 import React, { FC } from 'react';
 import { GestureResponderHandlers, Animated, StyleSheet } from 'react-native';
-import type { SwipeButtonCommonProps } from './SwipeButton';
 
-export interface SwipeButtonCircleProps extends SwipeButtonCommonProps {
+export interface SwipeButtonCircleProps {
   /**
    * GestureHandlers for when swiping the button
    */
@@ -27,6 +26,10 @@ export interface SwipeButtonCircleProps extends SwipeButtonCommonProps {
    * Background color for the circle
    */
   circleBackgroundColor?: string;
+
+  borderRadius?: number;
+
+  height?: number;
 }
 
 export const SwipeButtonCircle: FC<SwipeButtonCircleProps> = ({
@@ -75,7 +78,7 @@ export const SwipeButtonCircle: FC<SwipeButtonCircleProps> = ({
 const styles = StyleSheet.create({
   iconContainer: {
     position: 'absolute',
-    backgroundColor: '#e9ff6b',
+    backgroundColor: 'white',
     alignItems: 'center',
     justifyContent: 'center',
   },

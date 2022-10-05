@@ -4,7 +4,9 @@ import { SwipeButton } from '../../src/index';
 
 function Home(): JSX.Element {
   return (
-    <View style={{ flex: 1 }}>
+    <View
+      style={{ flex: 1, justifyContent: 'center', backgroundColor: 'gray' }}
+    >
       <SwipeButton
         Icon={<Text>X</Text>}
         onComplete={() => Alert.alert('Completed')}
