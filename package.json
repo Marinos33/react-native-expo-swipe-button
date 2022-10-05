@@ -1,6 +1,6 @@
 {
   "name": "react-native-expo-swipe-button",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "a ready-to-use swipe button highly customizable",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
