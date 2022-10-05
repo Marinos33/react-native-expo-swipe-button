@@ -13,18 +13,6 @@ type SwipeButtonPropsExtends = Omit<
 
 export interface SwipeButtonProps extends SwipeButtonPropsExtends {
   /**
-   * Callback that will be invoked when complete threshold has been reached
-   */
-  onComplete: () => void;
-
-  /**
-   * The width of the button
-   *
-   * @default 90% of the screen width
-   */
-  width?: number;
-
-  /**
    * If disabled is set to true it will not be possible to interact with the button
    */
   disabled?: boolean;
@@ -37,14 +25,24 @@ export interface SwipeButtonProps extends SwipeButtonPropsExtends {
   completeThresholdPercentage?: number;
 
   /**
-   * Callback that will be invoked when the user starts swiping
+   * If true, the circle will scroll back to the start position after swipe is completed
+   *
+   * @default false
    */
-  onSwipeStart?: () => void;
+  goBackToStart?: boolean;
 
   /**
-   * Callback that will be invoked when the user ends swiping
+   * The width of the component
+   *
+   * @default 90% of the screen width
    */
-  onSwipeEnd?: () => void;
+  width?: number;
+
+  /**
+   * The height of the component
+   * @default 70
+   */
+  height?: number;
 
   /**
    * The styling of the underlay container
@@ -57,29 +55,11 @@ export interface SwipeButtonProps extends SwipeButtonPropsExtends {
   containerStyle?: StyleProp<ViewStyle>;
 
   /**
-   * The styling of the button
-   */
-  iconContainerStyle?: StyleProp<ViewStyle>;
-
-  /**
-   * The height of the button
-   * @default 70
-   */
-  height?: number;
-
-  /**
    * The border radius of the container and the Icon
    *
    * @default (height / 2)
    */
   borderRadius?: number;
-
-  /**
-   * If true, the circle will scroll back to the start position after swipe is completed
-   *
-   * @default false
-   */
-  goBackToStart?: boolean;
 
   /**
    * gradient props for the container. Using this will actually use a linear gradient as view
@@ -96,12 +76,22 @@ export interface SwipeButtonProps extends SwipeButtonPropsExtends {
   } & Omit<LinearGradientProps, 'colors' | 'style'>;
 
   /**
+   * Callback that will be invoked when complete threshold has been reached
+   */
+  onComplete: () => void;
+
+  /**
    * callback for swiping in progress
    */
   onSwipeProgress?: (progress: number) => void;
 
   /**
-   * define the size of the cirlce button
+   * Callback that will be invoked when the user starts swiping
    */
-  circleSize?: number;
+  onSwipeStart?: () => void;
+
+  /**
+   * Callback that will be invoked when the user ends swiping
+   */
+  onSwipeEnd?: () => void;
 }

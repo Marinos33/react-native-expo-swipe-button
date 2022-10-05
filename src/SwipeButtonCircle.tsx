@@ -40,6 +40,7 @@ export interface SwipeButtonCircleProps {
 
   /**
    * set the size (width and height) of the circle
+   * @default 70
    */
   circleSize?: number;
 

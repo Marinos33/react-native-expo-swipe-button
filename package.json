@@ -1,5 +1,5 @@
 {
-  "name": "react-native-swipe-button",
+  "name": "react-native-expo-swipe-button",
   "version": "1.0.0",
   "description": "a ready-to-use swipe button highly customizable",
   "main": "lib/commonjs/index",
@@ -13,7 +13,7 @@
     "android",
     "ios",
     "cpp",
-    "react-native-swipe-button.podspec",
+    "react-native-expo-swipe-button.podspec",
     "!lib/typescript/example",
     "!android/build",
     "!ios/build",
@@ -36,13 +36,13 @@
     "ios",
     "android"
   ],
-  "repository": "https://github.com/Marinos33/react-native-swipe-button",
+  "repository": "https://github.com/Marinos33/react-native-expo-swipe-button",
   "author": "Marinos33 <loicmidavaine@gmail.com> (https://github.com/Marinos33)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Marinos33/react-native-swipe-button/issues"
+    "url": "https://github.com/Marinos33/react-native-expo-swipe-button/issues"
   },
-  "homepage": "https://github.com/Marinos33/react-native-swipe-button#readme",
+  "homepage": "https://github.com/Marinos33/react-native-expo-swipe-button#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },

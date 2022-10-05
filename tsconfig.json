@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "react-native-swipe-button": ["./src/index"]
+      "react-native-expo-swipe-button": ["./src/index"]
     },
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,

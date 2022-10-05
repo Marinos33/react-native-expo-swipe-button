@@ -64,7 +64,6 @@ const SwipeButtonUnderlayText: FC<
   animation,
   height = DEFAULT_HEIGHT,
 }) => {
-  console.log('animation', animation);
   return (
     underlayTitleElement || (
       <Animated.View
