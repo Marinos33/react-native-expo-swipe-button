@@ -55,6 +55,11 @@ export interface SwipeButtonProps extends SwipeButtonPropsExtends {
   containerStyle?: StyleProp<ViewStyle>;
 
   /**
+   * The styling of the button
+   */
+  iconContainerStyle?: StyleProp<ViewStyle>;
+
+  /**
    * The height of the button
    * @default 70
    */
@@ -87,4 +92,14 @@ export interface SwipeButtonProps extends SwipeButtonPropsExtends {
   underlayContainerGradientProps?: {
     colors?: string[];
   } & Omit<LinearGradientProps, 'colors' | 'style'>;
+
+  /**
+   * callback for swiping in progress
+   */
+  onSwipeProgress?: (progress: number) => void;
+
+  /**
+   * define the size of the cirlce button
+   */
+  circleSize?: number;
 }

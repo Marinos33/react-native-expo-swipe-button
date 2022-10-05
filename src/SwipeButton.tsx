@@ -32,8 +32,11 @@ const SwipeButton: FC<SwipeButtonProps> = ({
   circleBackgroundColor,
   underlayContainerGradientProps,
   containerGradientProps,
+  iconContainerStyle,
   titleElement,
+  circleSize,
   onComplete,
+  onSwipeProgress = (_progress: number) => {},
   onSwipeEnd = () => {},
   onSwipeStart = () => {},
   height = DEFAULT_HEIGHT,
@@ -48,7 +51,10 @@ const SwipeButton: FC<SwipeButtonProps> = ({
   const [translateX] = useState<Animated.Value & { _value?: number }>(
     new Animated.Value(0)
   );
-  const scrollDistance = width - completeThresholdPercentage / 100 - height;
+  console.log('width', width);
+  console.log('height', height);
+  const scrollDistance =
+    width - completeThresholdPercentage / 100 - (circleSize || height);
   const completeThreshold =
     scrollDistance * (completeThresholdPercentage / 100);
 
@@ -72,6 +78,13 @@ const SwipeButton: FC<SwipeButtonProps> = ({
       useNativeDriver: false,
     }).start();
 
+    Animated.spring(translateX, {
+      toValue: scrollDistance,
+      tension: 10,
+      friction: 5,
+      useNativeDriver: false,
+    }).start();
+
     if (goBackToStart) {
       setEndReached(true);
 
@@ -85,6 +98,10 @@ const SwipeButton: FC<SwipeButtonProps> = ({
     _: GestureResponderEvent,
     gestureState: PanResponderGestureState
   ) => {
+    if (gestureState.dx > 0) {
+      onSwipeProgress(gestureState.dx);
+    }
+
     if (disabled) {
       return false;
     }
@@ -155,7 +172,7 @@ const SwipeButton: FC<SwipeButtonProps> = ({
             {
               width: translateX.interpolate({
                 inputRange: [0, 100],
-                outputRange: [31, 131],
+                outputRange: [60, 160],
               }),
               height,
             },
@@ -171,7 +188,8 @@ const SwipeButton: FC<SwipeButtonProps> = ({
         panHandlers={panResponser().panHandlers}
         translateX={translateX}
         borderRadius={borderRadius}
-        height={height}
+        circleSize={circleSize}
+        iconContainerStyle={iconContainerStyle}
       />
     </SwipeGradientView>
   );
@@ -191,5 +209,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#152228',
     borderTopStartRadius: DEFAULT_BORDER_RADIUS,
     borderBottomStartRadius: DEFAULT_BORDER_RADIUS,
+    borderBottomEndRadius: DEFAULT_BORDER_RADIUS,
+    borderTopEndRadius: DEFAULT_BORDER_RADIUS,
   },
 });

@@ -71,6 +71,10 @@ const onSelect = (selectedTag: string[]) => {
 
 A complete minimal example can be found [Here](example/src/Home.tsx).
 
+## Known issues
+
+Setting the gradient color for the underlayContainer make it impossible to set the border radius without making the underlay background transparent
+
 ## Contributing
 
 See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the repository.

@@ -1,5 +1,11 @@
 import React, { FC } from 'react';
-import { GestureResponderHandlers, Animated, StyleSheet } from 'react-native';
+import {
+  GestureResponderHandlers,
+  Animated,
+  StyleSheet,
+  StyleProp,
+  ViewStyle,
+} from 'react-native';
 
 export interface SwipeButtonCircleProps {
   /**
@@ -27,9 +33,20 @@ export interface SwipeButtonCircleProps {
    */
   circleBackgroundColor?: string;
 
+  /**
+   * set border radius for the circle
+   */
   borderRadius?: number;
 
-  height?: number;
+  /**
+   * set the size (width and height) of the circle
+   */
+  circleSize?: number;
+
+  /**
+   * Additional styling for the circle
+   */
+  iconContainerStyle?: StyleProp<ViewStyle>;
 }
 
 export const SwipeButtonCircle: FC<SwipeButtonCircleProps> = ({
@@ -37,9 +54,10 @@ export const SwipeButtonCircle: FC<SwipeButtonCircleProps> = ({
   opacity,
   panHandlers,
   translateX,
-  height,
+  circleSize,
   borderRadius,
   circleBackgroundColor,
+  iconContainerStyle,
 }) => {
   return (
     <Animated.View
@@ -47,10 +65,11 @@ export const SwipeButtonCircle: FC<SwipeButtonCircleProps> = ({
       {...panHandlers}
       style={[
         styles.iconContainer,
+        iconContainerStyle,
         {
           opacity,
-          width: height,
-          height,
+          width: circleSize,
+          height: circleSize,
           borderRadius,
           transform: [{ translateX }],
         },
@@ -62,8 +81,8 @@ export const SwipeButtonCircle: FC<SwipeButtonCircleProps> = ({
           styles.innerIconContainer,
           {
             backgroundColor: circleBackgroundColor,
-            width: height,
-            height,
+            width: circleSize,
+            height: circleSize,
             borderRadius,
           },
           { opacity },
