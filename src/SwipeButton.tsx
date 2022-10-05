@@ -34,11 +34,11 @@ const SwipeButton: FC<SwipeButtonProps> = ({
   containerGradientProps,
   iconContainerStyle,
   titleElement,
-  circleSize,
   onComplete,
   onSwipeProgress = (_progress: number) => {},
   onSwipeEnd = () => {},
   onSwipeStart = () => {},
+  circleSize = DEFAULT_HEIGHT,
   height = DEFAULT_HEIGHT,
   width = DEFAULT_WIDTH,
   borderRadius = DEFAULT_BORDER_RADIUS,
@@ -51,10 +51,8 @@ const SwipeButton: FC<SwipeButtonProps> = ({
   const [translateX] = useState<Animated.Value & { _value?: number }>(
     new Animated.Value(0)
   );
-  console.log('width', width);
-  console.log('height', height);
-  const scrollDistance =
-    width - completeThresholdPercentage / 100 - (circleSize || height);
+
+  const scrollDistance = width - completeThresholdPercentage / 100 - circleSize;
   const completeThreshold =
     scrollDistance * (completeThresholdPercentage / 100);
 

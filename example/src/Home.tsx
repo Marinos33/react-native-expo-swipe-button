@@ -12,11 +12,16 @@ function Home(): JSX.Element {
         onComplete={() => Alert.alert('Completed')}
         title="Swipe to complete"
         borderRadius={180}
-        circleSize={60}
-        iconContainerStyle={{ marginStart: 5 }}
-        //containerStyle={{ borderWidth: 5, borderColor: 'red' }}
-        //onSwipeProgress={(progress) => console.log(progress)}
-        /*containerGradientProps={{
+        //circleSize={60}
+        /*iconContainerStyle={{ marginStart: 5 }}
+        containerStyle={{ borderWidth: 5, borderColor: 'red' }}
+        underlayStyle={{
+          borderWidth: 5,
+          borderColor: 'red',
+          borderRadius: 180,
+        }}
+        onSwipeProgress={(progress) => console.log(progress)}
+        containerGradientProps={{
           colors: ['red', 'blue'],
           start: [0, 0.5],
           end: [1, 0.5],

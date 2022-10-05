@@ -73,7 +73,6 @@ A complete minimal example can be found [Here](example/src/Home.tsx).
 
 ## Known issues
 
-Setting the gradient color for the underlayContainer make it impossible to set the border radius without making the underlay background transparent
 
 ## Contributing
 
