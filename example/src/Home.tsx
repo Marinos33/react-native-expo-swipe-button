@@ -8,9 +8,13 @@ function Home(): JSX.Element {
       style={{ flex: 1, justifyContent: 'center', backgroundColor: 'gray' }}
     >
       <SwipeButton
-        Icon={<Text>X</Text>}
+        Icon={<Text style={{ color: 'white' }}>X</Text>}
         onComplete={() => Alert.alert('Completed')}
         title="Swipe to complete"
+        borderRadius={180}
+        containerStyle={{
+          borderRadius: 10,
+        }}
       />
     </View>
   );

@@ -15,14 +15,14 @@ export interface SwipeButtonProps extends SwipeButtonPropsExtends {
   onComplete: () => void;
 
   /**
-   * The with of the button
+   * The width of the button
    *
    * @default 90% of the screen width
    */
   width?: number;
 
   /**
-   * If disabled is set to true it will not be possible to interace with the button
+   * If disabled is set to true it will not be possible to interact with the button
    */
   disabled?: boolean;
 
@@ -34,12 +34,12 @@ export interface SwipeButtonProps extends SwipeButtonPropsExtends {
   completeThresholdPercentage?: number;
 
   /**
-   * Callback that will be invoked when the suer starts swiping
+   * Callback that will be invoked when the user starts swiping
    */
   onSwipeStart?: () => void;
 
   /**
-   * Callback that will be invoked when the suer ends swiping
+   * Callback that will be invoked when the user ends swiping
    */
   onSwipeEnd?: () => void;
 
@@ -49,7 +49,7 @@ export interface SwipeButtonProps extends SwipeButtonPropsExtends {
   underlayStyle?: StyleProp<ViewStyle>;
 
   /**
-   * Styling for the outer container
+   * Styling of the outer container
    */
   containerStyle?: StyleProp<ViewStyle>;
 

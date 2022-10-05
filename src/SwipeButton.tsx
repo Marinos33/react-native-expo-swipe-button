@@ -8,7 +8,7 @@ import {
   StyleSheet,
 } from 'react-native';
 import {
-  DEFAULT_BORDER_RRADIUS,
+  DEFAULT_BORDER_RADIUS,
   DEFAULT_COMPLETE_THRESHOLD_PERCENTAGE,
   DEFAULT_GO_BACK_TO_START,
   DEFAULT_HEIGHT,
@@ -20,24 +20,24 @@ import SwipeButtonText from './SwipeButtonText';
 import type { SwipeButtonProps } from './typings';
 
 const SwipeButton: FC<SwipeButtonProps> = ({
-  height = DEFAULT_HEIGHT,
-  width = DEFAULT_WIDTH,
-  borderRadius = DEFAULT_BORDER_RRADIUS,
   title,
   titleContainerExtraViewProps,
   titleExtraTextProps,
   titleContainerStyle,
   titleStyle,
-  completeThresholdPercentage = DEFAULT_COMPLETE_THRESHOLD_PERCENTAGE,
   underlayStyle,
   disabled,
   Icon,
   containerStyle,
   circleBackgroundColor,
-  goBackToStart = DEFAULT_GO_BACK_TO_START,
   onComplete,
   onSwipeEnd = () => {},
   onSwipeStart = () => {},
+  height = DEFAULT_HEIGHT,
+  width = DEFAULT_WIDTH,
+  borderRadius = DEFAULT_BORDER_RADIUS,
+  completeThresholdPercentage = DEFAULT_COMPLETE_THRESHOLD_PERCENTAGE,
+  goBackToStart = DEFAULT_GO_BACK_TO_START,
 }) => {
   const [endReached, setEndReached] = useState<boolean>(false);
   const opacity = disabled ? 0.5 : 1;
@@ -175,7 +175,7 @@ export default SwipeButton;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+    backgroundColor: 'white',
     alignSelf: 'center',
     justifyContent: 'center',
     marginVertical: 10,
@@ -183,5 +183,7 @@ const styles = StyleSheet.create({
   underlayContainer: {
     position: 'absolute',
     backgroundColor: '#152228',
+    borderTopStartRadius: DEFAULT_BORDER_RADIUS,
+    borderBottomStartRadius: DEFAULT_BORDER_RADIUS,
   },
 });

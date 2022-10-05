@@ -13,7 +13,7 @@ import { DEFAULT_HEIGHT } from './constants';
 
 export interface SwipeButtonTextProps {
   /**
-   * The text that will be displaied in the container
+   * The text that will be displayed in the container
    */
   title: string;
 

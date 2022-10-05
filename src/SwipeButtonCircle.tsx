@@ -13,7 +13,7 @@ export interface SwipeButtonCircleProps {
   opacity?: number;
 
   /**
-   * Element that should be displaied inside the button
+   * Element that should be displayed inside the button
    */
   Icon: JSX.Element;
 
@@ -78,7 +78,7 @@ export const SwipeButtonCircle: FC<SwipeButtonCircleProps> = ({
 const styles = StyleSheet.create({
   iconContainer: {
     position: 'absolute',
-    backgroundColor: 'white',
+    backgroundColor: 'black',
     alignItems: 'center',
     justifyContent: 'center',
   },
