@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, StyleSheet, Alert, Text } from 'react-native';
-import { SwipeButton } from '../../src/index';
+//import { SwipeButton } from '../../src/index';
+import { SwipeButton } from 'react-native-expo-swipe-button';
 import { MaterialIcons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 
